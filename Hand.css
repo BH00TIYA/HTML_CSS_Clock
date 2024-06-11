@@ -1,0 +1,92 @@
+.clock{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vh;
+    background-color: burlywood;
+    border-radius: 50%;
+    border-color: black;
+    border-width: 3px;
+}
+body{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+.clock span{
+    font-family: 'Courier New', Courier, monospace;
+    color: azure;
+    font-size: 40px;
+    transform: rotate(calc(30deg*var(--i)));
+    inset: 12px;
+    position: absolute;
+    text-align: center;
+}
+.conta{
+    position: relative;
+}
+.clock span b{
+    transform: rotate(calc(-30deg * var(--i)));
+    display: inline-block;
+}
+.clock::before{
+    z-index: +1;
+    content: "";
+    position: absolute;
+    height: 10vh;
+    width: 10vh;
+    background-color: #1E1817;
+    border-radius: 50%;
+    box-shadow: 0px 0px 30px #1E1817;
+}
+.hand{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    animation: rotate(360deg) 60s linear infinite;
+    transform-origin: bottom;
+}
+@keyframes rotateSecondHand {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotatehourHand {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotateminuteHand {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+#minutehand{
+    animation: rotateminuteHand 3600s linear infinite;
+}
+#hourhand{
+    animation: rotatehourHand 43200s linear infinite;
+}
+#secondhand{
+    animation: rotateSecondHand 60s linear infinite;
+}
+.hand i{
+    position: absolute;
+    background-color: var(--clr);
+    width: 4vh;
+    height: 30vh;
+    border-radius: 20%
+}
